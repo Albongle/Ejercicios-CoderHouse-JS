@@ -1,0 +1,50 @@
+.section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    div {
+      animation: movimientos 2s ease-in-out infinite alternate;
+    }
+    div:nth-child(1) {
+      animation-delay: 0.3s;
+      background-color: $rojo;
+      box-shadow: 2.5rem 1rem 1rem $azul;
+    }
+    div:nth-child(2) {
+      animation-delay: 0.6s;
+      background-color: $verde;
+      box-shadow: 2.5rem 1rem 1rem $rojo;
+    }
+    div:nth-child(3) {
+      animation-delay: 0.9s;
+      background-color: $azul;
+      box-shadow: 2.5rem 1rem 1rem $verde;
+    }
+
+    .section__div {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+      margin: 1rem;
+      height: 5rem;
+      width: 5rem;
+      border-radius: 50%;
+      text-align: center;
+      color:$secundario;
+    }
+
+  }
+
+  @keyframes movimientos {
+    0% {
+      filter: none;
+    }
+    100% {
+      filter: hue-rotate(180deg);
+      transform: translateY(5rem);
+    }
+  }

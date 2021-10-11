@@ -1,0 +1,38 @@
+.footer {
+  background-color: $secundario;
+  color: $principal;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  @media (max-width:768px) {
+    justify-content: center;
+  }
+  .footer__nav {
+    .nav__listas {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      .listas__link {
+        padding: 1rem;
+        border-radius: 1rem;
+        position: relative;
+        list-style: none;
+        margin: 1rem;
+                a {
+          color: $principal;
+          text-decoration: none;
+        }
+        &:hover {
+          background-color: $principal;
+          a {
+            color: $secundario;
+          }
+        }
+      }
+    }
+  }
+}

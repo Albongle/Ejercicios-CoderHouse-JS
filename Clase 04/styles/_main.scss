@@ -1,0 +1,117 @@
+.main {
+  margin: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .main__boton {
+    color: $secundario;
+    animation: agrandar 1s .2s infinite ease-in-out alternate;
+    padding: 1rem 2rem;
+    background-color: $color-boton;
+    border: 0;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  .main__tabla {
+    margin-top: 1rem;
+    table {
+
+      border-radius: 0.5rem;
+      thead {
+        background-color: $color-titulo;
+        th {
+          padding: 1rem;
+          color: $secundario;
+        }
+      }
+      tbody {
+
+        tr {
+        
+            &:nth-of-type(even){
+                background-color: $color-fila;
+            }
+          td {
+            
+            color: $secundario;
+            text-align: center;
+            padding: .5rem;
+          }
+        }
+      }
+    }
+
+    }
+    & img {
+        width: 1.6rem;
+        cursor: pointer;
+        &:active{
+          transform: scale(0.9,0.9);
+        }
+    }
+  
+  .main__formulario {
+    padding: 2rem;
+    position: absolute;
+    top: 25%;
+    background-color: $secundario;
+    border-radius: 1rem;
+    .formulario__boton {
+      position: absolute;
+      top: 0%;
+      left: 86%;
+      padding: 0.5rem 1rem;
+      background-color: $secundario;
+      border-radius: 0.5rem;
+      border: 0;
+      color: $principal;
+      cursor: pointer;
+      box-shadow: 5px 5px 10px $principal;
+      &:active{
+        transform: scale(0.9,0.9);
+      }
+    }
+    fieldset {
+      margin: 1rem;
+      border: 1px solid $verde;
+      border-radius: 1rem;
+      background-color: $secundario;
+    }
+    .formulario__controles {
+      margin: 1rem;
+      display: flex;
+      flex-direction: column;
+      .controles__texto {
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        margin: 1rem;
+      }
+      .controles__boton {
+        
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        background-color: $color-boton;
+        color: $secundario;
+        border: 0;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.incompleto {
+  border: $rojo solid 1px;
+}
+.completo {
+  border: $verde solid 1px;
+}
+
+@keyframes agrandar {
+  0% {
+      transform: scale(1,1);
+  }
+  100% {
+    transform: scale(1.2,1.2);
+  }
+}
