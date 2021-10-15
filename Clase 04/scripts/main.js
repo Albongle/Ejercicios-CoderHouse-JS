@@ -125,6 +125,20 @@ function handlerGuardar(event) {
       mySpinner.setSpinner(spinner);
       setTimeout(() => {
         mySpinner.removeSpinner(spinner,document.getElementById("img-spinner"));
+
+
+        //Ordeno el Array por DNI de mayor a menor
+        personas.sort((elementA,elementB)=>{
+          if(elementA.dni<elementB.dni){
+            return 1;
+          }
+          else if(elementA.dni>elementB.dni)
+          {
+            return -1;
+          }
+          return 0;
+        })
+
         handlerLoadTable(event, personas, tabla);
       }, 3000);
     }
