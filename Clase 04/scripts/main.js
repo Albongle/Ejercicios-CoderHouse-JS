@@ -128,16 +128,7 @@ function handlerGuardar(event) {
 
 
         //Ordeno el Array por DNI de mayor a menor
-        personas.sort((elementA,elementB)=>{
-          if(elementA.dni<elementB.dni){
-            return 1;
-          }
-          else if(elementA.dni>elementB.dni)
-          {
-            return -1;
-          }
-          return 0;
-        })
+        personas.sort((elementA,elementB)=> elementB.dni - elementA.dni);
 
         handlerLoadTable(event, personas, tabla);
       }, 3000);
