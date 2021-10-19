@@ -5,17 +5,17 @@ import {handlerLoadTable} from "./tabla.js"
 
 
 
-let btnGuardar = document.getElementById("btnGuardar");
-let btnCierreFrm = document.getElementById("btnCierreFrm");
-let btnAbrirFrm = document.getElementById("btnAbrirFrm");
-let nombre = document.getElementById("nombre");
-let apellido = document.getElementById("apellido");
-let dni = document.getElementById("dni");
-let tabla = document.getElementById("contenedor-tabla");
-let formulario = document.getElementById("formulario");
-let cajasText = document.querySelectorAll(".controles__texto");
-let spinner = document.getElementById("spinner");
-let personas = [];
+const btnGuardar = document.getElementById("btnGuardar");
+const btnCierreFrm = document.getElementById("btnCierreFrm");
+const btnAbrirFrm = document.getElementById("btnAbrirFrm");
+const nombre = document.getElementById("nombre");
+const apellido = document.getElementById("apellido");
+const dni = document.getElementById("dni");
+const tabla = document.getElementById("contenedor-tabla");
+const formulario = document.getElementById("formulario");
+const cajasText = document.querySelectorAll(".controles__texto");
+const spinner = document.getElementById("spinner");
+const personas = [];
 let idSeleccionado;
 
 window.addEventListener("DOMContentLoaded", () => {
