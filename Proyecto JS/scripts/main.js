@@ -1,9 +1,9 @@
 import { getDatosAjax} from "./ajax.js";
 import { creaAnuncio } from "./anuncio.js";
-import { addRangoDePrecios } from "./controles.js";
+import { addRangoDePrecios, addFiltroDeNombres } from "./controles.js";
 const productos = [];
 let productosAux;
-const filtrarPrecio = document.getElementById("rango-precio");
+let filtrarPrecio;
 const filtraMarca = document.querySelectorAll("#select-marca");
 const anuncios = document.getElementById("anuncios");
 
@@ -16,6 +16,9 @@ window.addEventListener("DOMContentLoaded",(event)=>{
 
     productos.push(...datos); // pusheo los datos de la api al array
     productosAux = datos;
+
+    addRangoDePrecios(datos,"precio");
+    filtrarPrecio = document.getElementById("rango-precio");
     filtrarPrecio.addEventListener("change",handlerFiltroPrecio);
     filtraMarca.forEach(element=> element.addEventListener("click", handlerFiltromarca));
     productos.forEach(element=> anuncios.appendChild(creaAnuncio(element)));
