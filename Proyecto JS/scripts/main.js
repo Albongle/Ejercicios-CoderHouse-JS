@@ -4,7 +4,7 @@ import { addRangoDePrecios, addFiltroDeNombres } from "./controles.js";
 const productos = [];
 let productosAux;
 let filtrarPrecio;
-const filtraMarca = document.querySelectorAll("#select-marca");
+let filtraMarca;
 const anuncios = document.getElementById("anuncios");
 
 
@@ -18,8 +18,10 @@ window.addEventListener("DOMContentLoaded",(event)=>{
     productosAux = datos;
 
     addRangoDePrecios(datos,"precio");
+    addFiltroDeNombres(datos);
     filtrarPrecio = document.getElementById("rango-precio");
     filtrarPrecio.addEventListener("change",handlerFiltroPrecio);
+    filtraMarca = document.querySelectorAll(".select-marca");
     filtraMarca.forEach(element=> element.addEventListener("click", handlerFiltromarca));
     productos.forEach(element=> anuncios.appendChild(creaAnuncio(element)));
 

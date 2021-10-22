@@ -12,9 +12,9 @@ export const addRangoDePrecios = (elementos,filtro)=>{
 
     titulo.textContent = "Precio";
     divInput.classList.add("precio__input");
-    primerLabel.for="rango-precio";
+    primerLabel.setAttribute("for","rango-precio");
     primerLabel.textContent = min;
-    segundoLabel.for="rango-precio";
+    segundoLabel.setAttribute("for","rango-precio");
     segundoLabel.textContent = max;
     inputRange.setAttribute("id","rango-precio");
     inputRange.setAttribute("type","range");
@@ -32,7 +32,33 @@ export const addRangoDePrecios = (elementos,filtro)=>{
 export const addFiltroDeNombres = (elementos)=>{
     const divControlMarca = document.getElementById("control-marca");
     const titulo = document.createElement("h3");
+    const divSelectMarca = document.createElement("div");
+    const marcas = [];
+    divSelectMarca.classList.add("marca__select");
+    elementos.forEach((element)=>{
+        if(!marcas.includes(element.marca)){
+            marcas.push(element.marca);
+        }
+    })
 
+    for (const marca of marcas) {
+        const label = document.createElement("label");
+        const input = document.createElement("input");
+        input.type="checkbox";
+        input.id ="select-marca-"+marca.toLowerCase();
+        input.name = marca.toLowerCase();
+        input.classList.add("select-marca");
+        label.textContent = marca;
+        label.setAttribute("for",`select-marca-${marca.toLowerCase()}`);
+        divSelectMarca.appendChild(label);
+        divSelectMarca.appendChild(input);
+        
+        
+    }
+    titulo.textContent = "Marca";
+    divControlMarca.appendChild(titulo);
+    divControlMarca.appendChild(divSelectMarca);
+    console.log(marcas);
 
 
 
