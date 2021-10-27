@@ -30,9 +30,21 @@ window.addEventListener("DOMContentLoaded",(event)=>{
     console.error(error);
   });
 
+  document.addEventListener("click",handlerClick);
+
 
 
 })
+
+
+const handlerClick = (event)=>{
+
+  if(event.target.matches("img")){
+    console.log(event.target.parentNode.dataset.id);
+  }else if(event.target.matches("p")){
+    console.log(event.target.parentNode.parentNode.dataset.id);
+  }
+}
 
 
 const handlerFiltroPrecio = (event)=>{

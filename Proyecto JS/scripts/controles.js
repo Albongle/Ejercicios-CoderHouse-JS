@@ -1,30 +1,21 @@
 
 
 export const addRangoDePrecios = (elementos,filtro)=>{
+    let saltos = 1000;
     const divControlPrecio = document.getElementById("control-precio");
     const divInput = document.createElement("div");
     const titulo = document.createElement("h3");
-    const inputRange = document.createElement("input");
-    const primerLabel = document.createElement("label");
-    const segundoLabel = document.createElement("label");
+
     let max = Math.max(...(elementos.map(element => element[filtro])));
     let min = Math.min(...(elementos.map(element => element[filtro])));
 
     titulo.textContent = "Precio";
     divInput.classList.add("precio__input");
-    primerLabel.setAttribute("for","rango-precio");
-    primerLabel.textContent = min;
-    segundoLabel.setAttribute("for","rango-precio");
-    segundoLabel.textContent = max;
-    inputRange.setAttribute("id","rango-precio");
-    inputRange.setAttribute("type","range");
-    inputRange.setAttribute("min",min);
-    inputRange.setAttribute("max",max);
-    inputRange.setAttribute("step","1000");
-    inputRange.value = min;
-    divInput.appendChild(primerLabel);
-    divInput.appendChild(inputRange);
-    divInput.appendChild(segundoLabel);
+    divInput.innerHTML=
+    `<label for="rango-precio">${min}</label>
+    <input id="rango-precio" type="range" min="${min}" max="${max}" step="${saltos}" value="${min}">
+    <label for="rango-precio">${max}</label>`;
+    
     divControlPrecio.appendChild(titulo);
     divControlPrecio.appendChild(divInput);
 };

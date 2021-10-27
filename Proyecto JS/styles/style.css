@@ -258,6 +258,10 @@ body {
   width: 100%;
 }
 
+.anuncios .anuncios__anuncio .anuncio__img:hover {
+  cursor: pointer;
+}
+
 .anuncios .anuncios__anuncio .anuncio__detalle {
   display: -webkit-box;
   display: -ms-flexbox;
