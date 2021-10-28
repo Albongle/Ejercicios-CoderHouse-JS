@@ -87,14 +87,8 @@ const handlerEliminarItem =(event)=>{
   let trSeleccionado = event.target.parentNode.parentNode;
   trSeleccionado.parentNode.removeChild(trSeleccionado);
   let p = leeDelStorage("productosElegidos");
-
-
   p = p.filter(element=> element.id != parseInt(trSeleccionado.dataset.id));
-  console.log(p);
   guardarEnStorage("productosElegidos",p);
   location.reload();
-
-
  
-  console.log();
 }
