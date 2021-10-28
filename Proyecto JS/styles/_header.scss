@@ -12,6 +12,36 @@
     justify-content: center;
   }
   .header__nav {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    .nav__shop{
+      position: relative;
+      width: 3.2rem;
+      &:hover{
+        cursor: pointer;
+        transform: scale(1.1,1.1 );
+        //box-shadow: whitesmoke .2rem .2rem 1rem;
+        transition-delay: 0.1ms;
+        transition-duration: 0.5s;
+      }
+    }
+    .nav__cantidad{
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      top: 1.6rem;
+      left: 10%;
+      text-align: center;
+      padding: .6rem;
+      border-radius:5rem;
+      background-color: tomato;
+      color: white;
+    }
     .nav__listas {
       display: flex;
       flex-direction: row;

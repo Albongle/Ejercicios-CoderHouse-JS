@@ -2,11 +2,13 @@ import { getDatosAjax} from "./ajax.js";
 import { addAnuncio } from "./anuncio.js";
 import { addRangoDePrecios, addFiltroDeNombres } from "./controles.js";
 const productos = [];
+const anuncios = document.getElementById("anuncios");
+const cantidadEnCarrito = document.getElementById("cantidad-carrito");
+const fotoCarrito = document.getElementById("foto-carrito");
+const productosElegidos =[];
 let productosFiltrados;
 let filtrarPrecio;
 let filtraMarca;
-const anuncios = document.getElementById("anuncios");
-
 
 window.addEventListener("DOMContentLoaded",(event)=>{
 
@@ -29,20 +31,55 @@ window.addEventListener("DOMContentLoaded",(event)=>{
     console.error(error);
   });
 
-  document.addEventListener("click",handlerClick);
+  document.addEventListener("click",handlerAddCarrito);
 
 
 
 })
 
 
-const handlerClick = (event)=>{
+const handlerAddCarrito = (event)=>{
+  
+  
+  let compra = false;
+  let idProducto;
 
-  if(event.target.matches("img")){
-    console.log(event.target.parentNode.dataset.id);
-  }else if(event.target.matches("p")){
-    console.log(event.target.parentNode.parentNode.dataset.id);
+
+  if(event.target.matches("img") && event.target.classList.contains("anuncio__img")){
+    idProducto = parseInt(event.target.parentNode.dataset.id) ;
+    compra = true;
+  }else if(event.target.matches("p") && event.target.parentNode.classList.contains("anuncio__detalle")){
+    idPorudcto = parseInt(event.target.parentNode.parentNode.dataset.id);
+    compra = true;  
   }
+
+
+  if(compra){
+    fotoCarrito.src="./img/carrito_lleno.ico";
+
+    addProductosElegidos(idProducto);
+  }
+}
+
+const addProductosElegidos=(idProducto)=>{
+  let cantidad = parseInt(cantidadEnCarrito.textContent);
+
+  if(!productosElegidos.find(element=> element.id === idProducto)){
+    productosElegidos.push(productos.find(element=> element.id === idProducto));
+    if(isNaN(cantidad)){
+      cantidad=1;
+    }
+    else{
+      cantidad++;
+    }
+    cantidadEnCarrito.textContent= cantidad;
+  }
+  guardarEnStorage(productosElegidos);
+}
+
+const guardarEnStorage = (productoSeleccionados)=>{
+
+  localStorage.setItem("productosElegidos",JSON.stringify(productoSeleccionados));
 }
 
 

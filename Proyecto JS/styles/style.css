@@ -45,6 +45,63 @@ body {
   }
 }
 
+.header .header__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .header__nav .nav__shop {
+  position: relative;
+  width: 3.2rem;
+}
+
+.header .header__nav .nav__shop:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+  -webkit-transition-delay: 0.1ms;
+          transition-delay: 0.1ms;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+
+.header .header__nav .nav__cantidad {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 1.6rem;
+  left: 10%;
+  text-align: center;
+  padding: .6rem;
+  border-radius: 5rem;
+  background-color: tomato;
+  color: white;
+}
+
 .header .header__nav .nav__listas {
   display: -webkit-box;
   display: -ms-flexbox;
