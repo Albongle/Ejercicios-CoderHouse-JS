@@ -2,7 +2,8 @@ import { getDatosAjax} from "./ajax.js";
 import { addAnuncio } from "./anuncio.js";
 import { addRangoDePrecios, addFiltroDeNombres } from "./controles.js";
 import { guardarEnStorage, leeDelStorage } from "./storage.js";
-import { handlerLoadTable } from "./tabla.js";
+import { handlerLoadTable} from "./tabla.js";
+
 const productos = [];
 const anuncios = document.getElementById("anuncios");
 const cantidadEnCarrito = document.getElementById("cantidad-carrito");
@@ -17,7 +18,6 @@ let filtraMarca;
 window.addEventListener("DOMContentLoaded",(event)=>{
 
   actualizarCarrito(productosElegidos);
-
   getDatosAjax("http://localhost:3000/Anuncios")
   .then((datos) => {
 
@@ -77,11 +77,14 @@ const addProductosElegidos=(idProducto)=>{
   if(!productosElegidos.find(element=> element.id === idProducto)){
     let productoElegido = productos.find(element=> element.id === idProducto);
     productosElegidos.push({id:productoElegido.id, urlImg:productoElegido.urlImg,marca:productoElegido.marca,nombre:productoElegido.nombre,precio:productoElegido.precio,cuotas:productoElegido.cuotas});
+
   }
   actualizarCarrito(productosElegidos);
-  guardarEnStorage(productosElegidos);
+  guardarEnStorage("productosElegidos",productosElegidos);
+
   
 }
+
 
 
 const actualizarCarrito = (productosElegidos)=>{

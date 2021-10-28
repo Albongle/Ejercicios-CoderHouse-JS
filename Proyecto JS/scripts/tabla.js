@@ -1,6 +1,8 @@
+import { leeDelStorage, guardarEnStorage,limpiarStorage } from "./storage.js";
 export function handlerLoadTable(items, contenedor) {
   mostrarTabla(crearTabla(items), contenedor);
 }
+
 
 // recibe una tabla y el contenedor, limpia los datos del contenedor y asigna lo recibido
 function mostrarTabla(tabla, contenedor) {
@@ -70,10 +72,29 @@ function crearTbody(items) {
     const colImg = document.createElement("td");
     const img = document.createElement("img");
     img.setAttribute("src", "./img/cancelar.png");
+    img.setAttribute("id", "img-accion");
     img.classList.add("img-accion");
+    img.addEventListener("click",handlerEliminarItem);
     colImg.appendChild(img);
     fila.appendChild(colImg);
     tbody.appendChild(fila);
   });
   return tbody;
+}
+
+
+const handlerEliminarItem =(event)=>{
+  let trSeleccionado = event.target.parentNode.parentNode;
+  trSeleccionado.parentNode.removeChild(trSeleccionado);
+  let p = leeDelStorage("productosElegidos");
+
+
+  p = p.filter(element=> element.id != parseInt(trSeleccionado.dataset.id));
+  console.log(p);
+  guardarEnStorage("productosElegidos",p);
+  location.reload();
+
+
+ 
+  console.log();
 }
