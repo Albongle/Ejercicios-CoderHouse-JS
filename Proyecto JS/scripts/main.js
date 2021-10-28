@@ -1,5 +1,5 @@
 import { getDatosAjax} from "./ajax.js";
-import { creaAnuncio } from "./anuncio.js";
+import { addAnuncio } from "./anuncio.js";
 import { addRangoDePrecios, addFiltroDeNombres } from "./controles.js";
 const productos = [];
 let productosAux;
@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded",(event)=>{
     filtrarPrecio.addEventListener("change",handlerFiltroPrecio);
     filtraMarca = document.querySelectorAll(".select-marca");
     filtraMarca.forEach(element=> element.addEventListener("click", handlerFiltromarca));
-    productos.forEach(element=> anuncios.appendChild(creaAnuncio(element)));
+    productos.forEach(element=> anuncios.appendChild(addAnuncio(element)));
 
   })
   .catch((error) => {
@@ -56,7 +56,7 @@ const handlerFiltroPrecio = (event)=>{
   
 
   productosAux = productos.filter(element => parseInt(element.precio) >= parseInt(event.target.value) );
-  productosAux.forEach(element=> anuncios.appendChild(creaAnuncio(element)));
+  productosAux.forEach(element=> anuncios.appendChild(addAnuncio(element)));
 
 };
 
@@ -82,6 +82,6 @@ const handlerFiltromarca = (event)=>{
   if(flag){
     productosAux = productos;
   }
-  productosAux.forEach(element=> anuncios.appendChild(creaAnuncio(element)));
+  productosAux.forEach(element=> anuncios.appendChild(addAnuncio(element)));
   
 };

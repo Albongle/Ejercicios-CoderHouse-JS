@@ -1,4 +1,4 @@
-export const creaAnuncio = (producto)=>{
+export const addAnuncio = (producto)=>{
     let {urlImg,desc,nombre,cuotas,tipo,precio,id} = producto;
     const divAnuncio = document.createElement("div");
     divAnuncio.setAttribute("data-id",id);  
