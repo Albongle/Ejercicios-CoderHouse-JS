@@ -95,7 +95,7 @@ const actualizarCarrito = (productosElegidos)=>{
   }
   else{
     fotoCarrito.src="./img/carrito_vacio.ico";
-    cantidadEnCarrito.textContent = "X";
+    cantidadEnCarrito.textContent = "0";
   }
   
 }
