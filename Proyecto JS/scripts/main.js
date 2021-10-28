@@ -1,18 +1,19 @@
 import { getDatosAjax} from "./ajax.js";
 import { addAnuncio } from "./anuncio.js";
 import { addRangoDePrecios, addFiltroDeNombres } from "./controles.js";
+import { guardarEnStorage, leeDelStorage } from "./storage.js";
 const productos = [];
 const anuncios = document.getElementById("anuncios");
 const cantidadEnCarrito = document.getElementById("cantidad-carrito");
 const fotoCarrito = document.getElementById("foto-carrito");
-const productosElegidos =[];
+const productosElegidos = leeDelStorage("productosElegidos") || [] ;
 let productosFiltrados;
 let filtrarPrecio;
 let filtraMarca;
 
 window.addEventListener("DOMContentLoaded",(event)=>{
 
-
+  actualizarCarrito(productosElegidos);
   getDatosAjax("http://localhost:3000/Anuncios")
   .then((datos) => {
 
@@ -55,31 +56,30 @@ const handlerAddCarrito = (event)=>{
 
 
   if(compra){
-    fotoCarrito.src="./img/carrito_lleno.ico";
-
     addProductosElegidos(idProducto);
   }
 }
 
 const addProductosElegidos=(idProducto)=>{
-  let cantidad = parseInt(cantidadEnCarrito.textContent);
 
   if(!productosElegidos.find(element=> element.id === idProducto)){
     productosElegidos.push(productos.find(element=> element.id === idProducto));
-    if(isNaN(cantidad)){
-      cantidad=1;
-    }
-    else{
-      cantidad++;
-    }
-    cantidadEnCarrito.textContent= cantidad;
   }
+  actualizarCarrito(productosElegidos);
   guardarEnStorage(productosElegidos);
 }
 
-const guardarEnStorage = (productoSeleccionados)=>{
 
-  localStorage.setItem("productosElegidos",JSON.stringify(productoSeleccionados));
+const actualizarCarrito = (productosElegidos)=>{
+  if(productosElegidos.length>0){
+    fotoCarrito.src="./img/carrito_lleno.ico";
+    cantidadEnCarrito.textContent = productosElegidos.length;
+  }
+  else{
+    fotoCarrito.src="./img/carrito_vacio.ico";
+    cantidadEnCarrito.textContent = "X";
+  }
+  
 }
 
 
@@ -89,7 +89,6 @@ const handlerFiltroPrecio = (event)=>{
   {
     anuncios.removeChild(anuncios.firstChild);
   }
-  
 
   const productosFiltrados = productos.filter(element => parseInt(element.precio) >= parseInt(event.target.value) );
   productosFiltrados.forEach(element=> anuncios.appendChild(addAnuncio(element)));
