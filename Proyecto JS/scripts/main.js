@@ -2,7 +2,7 @@ import { getDatosAjax} from "./ajax.js";
 import { addAnuncio } from "./anuncio.js";
 import { addRangoDePrecios, addFiltroDeNombres } from "./controles.js";
 const productos = [];
-let productosAux;
+let productosFiltrados;
 let filtrarPrecio;
 let filtraMarca;
 const anuncios = document.getElementById("anuncios");
@@ -15,7 +15,6 @@ window.addEventListener("DOMContentLoaded",(event)=>{
   .then((datos) => {
 
     productos.push(...datos); // pusheo los datos de la api al array
-    productosAux = datos;
 
     addRangoDePrecios(datos,"precio");
     addFiltroDeNombres(datos);
@@ -55,8 +54,8 @@ const handlerFiltroPrecio = (event)=>{
   }
   
 
-  productosAux = productos.filter(element => parseInt(element.precio) >= parseInt(event.target.value) );
-  productosAux.forEach(element=> anuncios.appendChild(addAnuncio(element)));
+  const productosFiltrados = productos.filter(element => parseInt(element.precio) >= parseInt(event.target.value) );
+  productosFiltrados.forEach(element=> anuncios.appendChild(addAnuncio(element)));
 
 };
 
@@ -70,18 +69,18 @@ const handlerFiltromarca = (event)=>{
   filtraMarca.forEach(opcion =>{
     if(opcion.checked){
       if(flag){
-        productosAux = productos.filter(element => element.marca.toLowerCase() === opcion.name.toLowerCase());
+        productosFiltrados = productos.filter(element => element.marca.toLowerCase() === opcion.name.toLowerCase());
         flag = false;
       }
       else{
-        productosAux.push(...productos.filter(element => element.marca.toLowerCase() === opcion.name.toLowerCase()));
+        productosFiltrados.push(...productos.filter(element => element.marca.toLowerCase() === opcion.name.toLowerCase()));
       }
     }
   });
 
   if(flag){
-    productosAux = productos;
+    productosFiltrados = productos;
   }
-  productosAux.forEach(element=> anuncios.appendChild(addAnuncio(element)));
+  productosFiltrados.forEach(element=> anuncios.appendChild(addAnuncio(element)));
   
 };
