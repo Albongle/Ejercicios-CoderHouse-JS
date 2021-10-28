@@ -53,8 +53,6 @@ body {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -64,6 +62,8 @@ body {
 }
 
 .header .header__nav .nav__shop {
+  margin-right: 1rem;
+  border-radius: 1rem;
   position: relative;
   width: 3.2rem;
 }
@@ -72,6 +72,8 @@ body {
   cursor: pointer;
   -webkit-transform: scale(1.1, 1.1);
           transform: scale(1.1, 1.1);
+  -webkit-box-shadow: tomato .2rem .2rem 1rem;
+          box-shadow: tomato .2rem .2rem 1rem;
   -webkit-transition-delay: 0.1ms;
           transition-delay: 0.1ms;
   -webkit-transition-duration: 0.5s;
@@ -93,11 +95,12 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  top: 1.6rem;
+  top: 2.5rem;
   left: 10%;
+  width: 3rem;
   text-align: center;
   padding: .6rem;
-  border-radius: 5rem;
+  border-radius: 50rem;
   background-color: tomato;
   color: white;
 }
@@ -421,5 +424,72 @@ body {
 
 .controles .controles__marca .marca__select input {
   margin-right: 1rem;
+}
+
+.cuadro-dialogo {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+}
+
+.cuadro-dialogo .cuadro-dialogo__carrito {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 1rem;
+}
+
+.cuadro-dialogo .cuadro-dialogo__carrito table {
+  border-collapse: collapse;
+}
+
+.cuadro-dialogo .cuadro-dialogo__carrito table thead {
+  border: .1rem solid whitesmoke;
+  background-color: white;
+}
+
+.cuadro-dialogo .cuadro-dialogo__carrito table thead th {
+  padding: 1rem;
+  color: tomato;
+}
+
+.cuadro-dialogo .cuadro-dialogo__carrito table tbody tr {
+  color: whitesmoke;
+  font-size: 1.6rem;
+}
+
+.cuadro-dialogo .cuadro-dialogo__carrito table tbody tr:nth-of-type(even) {
+  background-color: tomato;
+}
+
+.cuadro-dialogo .cuadro-dialogo__carrito table tbody tr td {
+  border: .1rem solid whitesmoke;
+  background-color: rgba(32, 33, 34, 0.692);
+  text-align: center;
+  padding: .5rem;
+}
+
+.cuadro-dialogo .cuadro-dialogo__carrito table tbody tr .img-accion {
+  width: 1.6rem;
+  cursor: pointer;
+}
+
+.cuadro-dialogo .cuadro-dialogo__carrito table tbody tr .img-accion:active {
+  -webkit-transform: scale(0.9, 0.9);
+          transform: scale(0.9, 0.9);
+}
+
+.cuadro-dialogo .cuadro-dialogo__carrito table tbody tr .img-telefono {
+  width: 5rem;
 }
 /*# sourceMappingURL=style.css.map */

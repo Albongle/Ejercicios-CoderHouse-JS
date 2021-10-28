@@ -2,11 +2,14 @@ import { getDatosAjax} from "./ajax.js";
 import { addAnuncio } from "./anuncio.js";
 import { addRangoDePrecios, addFiltroDeNombres } from "./controles.js";
 import { guardarEnStorage, leeDelStorage } from "./storage.js";
+import { handlerLoadTable } from "./tabla.js";
 const productos = [];
 const anuncios = document.getElementById("anuncios");
 const cantidadEnCarrito = document.getElementById("cantidad-carrito");
 const fotoCarrito = document.getElementById("foto-carrito");
+const contendorCarrito = document.getElementById("contenedor-carrito");
 const productosElegidos = leeDelStorage("productosElegidos") || [] ;
+const cuadroDialogo = document.getElementById("cuadro-dialogo");
 let productosFiltrados;
 let filtrarPrecio;
 let filtraMarca;
@@ -14,6 +17,7 @@ let filtraMarca;
 window.addEventListener("DOMContentLoaded",(event)=>{
 
   actualizarCarrito(productosElegidos);
+
   getDatosAjax("http://localhost:3000/Anuncios")
   .then((datos) => {
 
@@ -33,19 +37,29 @@ window.addEventListener("DOMContentLoaded",(event)=>{
   });
 
   document.addEventListener("click",handlerAddCarrito);
-
+  fotoCarrito.addEventListener("click",handlerCarrito);
 
 
 })
 
+const handlerCarrito = (event)=>{
+
+  if(cuadroDialogo.getAttribute("hidden")){
+    cuadroDialogo.removeAttribute("hidden");
+  }
+  else{
+    cuadroDialogo.setAttribute("hidden","true");
+  }
+  
+
+}
+
+
 
 const handlerAddCarrito = (event)=>{
   
-  
   let compra = false;
   let idProducto;
-
-
   if(event.target.matches("img") && event.target.classList.contains("anuncio__img")){
     idProducto = parseInt(event.target.parentNode.dataset.id) ;
     compra = true;
@@ -53,8 +67,6 @@ const handlerAddCarrito = (event)=>{
     idPorudcto = parseInt(event.target.parentNode.parentNode.dataset.id);
     compra = true;  
   }
-
-
   if(compra){
     addProductosElegidos(idProducto);
   }
@@ -63,14 +75,17 @@ const handlerAddCarrito = (event)=>{
 const addProductosElegidos=(idProducto)=>{
 
   if(!productosElegidos.find(element=> element.id === idProducto)){
-    productosElegidos.push(productos.find(element=> element.id === idProducto));
+    let productoElegido = productos.find(element=> element.id === idProducto);
+    productosElegidos.push({id:productoElegido.id, urlImg:productoElegido.urlImg,marca:productoElegido.marca,nombre:productoElegido.nombre,precio:productoElegido.precio,cuotas:productoElegido.cuotas});
   }
   actualizarCarrito(productosElegidos);
   guardarEnStorage(productosElegidos);
+  
 }
 
 
 const actualizarCarrito = (productosElegidos)=>{
+  handlerLoadTable(productosElegidos,contendorCarrito);
   if(productosElegidos.length>0){
     fotoCarrito.src="./img/carrito_lleno.ico";
     cantidadEnCarrito.textContent = productosElegidos.length;

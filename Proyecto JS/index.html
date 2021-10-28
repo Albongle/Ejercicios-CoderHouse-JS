@@ -15,7 +15,7 @@
     <header class="header">
         <img class="header__logo" src="./img/logo.png" alt="logo">
         <nav class="header__nav">
-            
+
             <ul class="nav__listas">
                 <li class="listas__link"><a href="#">Inicio</a></li>
                 <li class="listas__link"><a href="#">Nosotros</a></li>
@@ -29,11 +29,21 @@
 
                 </li>
             </ul>
+
             <img id="foto-carrito" class="nav__shop" src="./img/carrito_vacio.ico" alt="shop">
             <p id="cantidad-carrito" class="nav__cantidad">X</p>
         </nav>
+
     </header>
-    <div id="controles" class="controles">
+
+    <section hidden="true" id="cuadro-dialogo" class="cuadro-dialogo">
+        <div id="contenedor-carrito" class="cuadro-dialogo__carrito">
+        </div>
+
+    </section>
+
+
+    <section id="controles" class="controles">
         <h2>Filtros</h2>
         <div id="control-precio" class="controles__precio">
 
@@ -42,12 +52,16 @@
 
         </div>
 
+    </section>
+    <section id="spinner" class="spinner">
+
+    </section>
 
 
-    </div>
-    <div id="spinner" class="spinner">
 
-    </div>
+
+
+
     <main id="anuncios" class="anuncios">
 
 

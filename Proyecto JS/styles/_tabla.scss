@@ -1,0 +1,52 @@
+.cuadro-dialogo{
+  position:absolute;
+  top: 10%;
+  right:5%;
+
+  .cuadro-dialogo__carrito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    table {
+      border-collapse: collapse;
+      thead {
+        border: .1rem solid whitesmoke;
+        background-color:white;        
+        th {
+            padding: 1rem;
+            color: tomato;
+        }
+      }
+      tbody {
+        tr {
+            color: whitesmoke;
+            font-size: 1.6rem;
+            &:nth-of-type(even){
+                background-color: tomato;
+            }
+          td {
+            border: .1rem solid whitesmoke;
+            background-color: rgba(32, 33, 34, 0.692);
+            text-align: center;
+            padding: .5rem;
+          }
+          .img-accion{
+            width: 1.6rem;
+            cursor: pointer;
+            &:active{
+              transform: scale(0.9,0.9);
+            }
+          }
+          .img-telefono{
+            width: 5rem;
+          }
+        }
+      }
+    }
+
+}
+}
+
+

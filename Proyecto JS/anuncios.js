@@ -235,6 +235,18 @@ const anuncios = [{
     "precio":"239999",
     "cuotas":"12"
   
+  },
+  {
+    "id": 21,
+    "urlImg": "./img/equipos/ZFold3.png",
+    "desc": "NorkettLorem ipsum dolor sit amet consectetur adipisicing elit. Minima sequi facere accusantium magni doloremque eos eum numquam facilis unde! Officiis non quo pariatur atque rem facilis voluptas inventore sapiente modi",
+    "nombre": "ZFold3",
+    "marca":"Samsung",
+    "gama":"Alta",
+    "tipo": "Telefono",
+    "precio":"259999",
+    "cuotas":"12"
+  
   }];
 
   module.exports = anuncios;
