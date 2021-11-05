@@ -10,9 +10,16 @@ export const addAnuncio = (contenedor, elementos) => {
                     <p class="card-text"><span class="badge rounded-pill bg-info text-dark">Hasta ${element.cuotas} sin interés</span></p>
                     <p class="card-text">${element.desc}</p>                    
                 </div>
-                <button type="button" class="btn btn-outline-danger">Comprar</button>
+                <button  id="${element.id}" type="button" class="btn btn-outline-danger btn-comprar">Comprar</button>
             </div>
         </div>
     `);
+
   });
+
+  $(".btn-comprar").on("click",function () {
+    alert(`Comprado ${this.id}`);
+  });
+
+
 };

@@ -10,9 +10,9 @@ $("document").ready( ()=> {
     .then((datos) => {
       productos.push(...datos); // pusheo los datos de la api al array
       addAnuncio($("#anuncios"), productos);
-      console.log(productos);
     })
     .catch((error) => {
       console.error(error);
     });
 });
+
