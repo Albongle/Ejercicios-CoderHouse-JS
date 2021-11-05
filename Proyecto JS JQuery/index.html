@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/iconCel.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./scripts/main.js" defer type="module"></script>
+    <title>Tienda Movil</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="./img/iconCel.ico" alt="Logo" style="height: 32px;"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Equipos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link href=" #" id="navbarScrollingDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="./img/carrito_vacio.ico" class="position-relative" alt="carrito"
+                                style="height: 32px;">
+                            <span
+                                class="position-absolute top-100 start-1 translate-middle badge rounded-pill bg-success">
+                                0
+                            </span>
+                            </img>
+                        </a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button id="btn-buscar" class="btn btn-outline-light" type="button">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+
+        <section id="spinner" class="row justify-content-center">
+
+        </section>
+        <section id="anuncios" class="row card-group justify-content-md-between justify-content-center">
+            <!-- <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-3 m-2">
+                <div class="card">
+                    <img src="${element.urlImg}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">${element.marca} - ${element.nombre}</h5>
+                        <p class="card-text">${element.desc}</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+    
+                </div>
+            </div> -->
+
+        </section>
+
+    </main>
+
+
+
+
+
+
+
+</body>
+
+</html>
