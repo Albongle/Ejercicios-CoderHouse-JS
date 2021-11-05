@@ -33,17 +33,20 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Equipos</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link href=" #" id="navbarScrollingDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="./img/carrito_vacio.ico" class="position-relative" alt="carrito"
-                                style="height: 32px;">
-                            <span
-                                class="position-absolute top-100 start-1 translate-middle badge rounded-pill bg-success">
-                                0
-                            </span>
-                            </img>
-                        </a>
+                    <li class="nav-item dropdown container">
+                        <img src="./img/carrito_vacio.ico" class="m-1 dropdown-toggle position-relative" alt="carrito" style="height:32px;" id="dropdownMenuLink" data-bs-toggle="dropdown"aria-expanded="false">
+                        <span class="position-absolute top-50 start-1 translate-middle badge rounded-pill bg-success" id="carrito-cantidad">0</span>
+                        </img>
+                        <ul class="position-absolute dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+                            <li class="nav-item">
+                                <div class="container-fluid">
+                                    <div  id="carrito-productos" class="card-group row justify-content-center">
+    
+                                    </div>
+                                </div>
+                            </li>
+           
+                        </ul>
                     </li>
                 </ul>
                 <form class="d-flex">

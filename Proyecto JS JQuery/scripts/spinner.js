@@ -9,6 +9,6 @@ export default{
   },
 
    removeSpinner: function (contenedor,node) {
-    contenedor.removeChild(node);
+    $(contenedor).remove();
   }
 }

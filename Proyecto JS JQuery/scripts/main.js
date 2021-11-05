@@ -1,4 +1,4 @@
-import {productos} from "./globales.js";
+import {productos,carrito} from "./globales.js";
 import { getDatosAjax } from "./ajax.js";
 import { addAnuncio } from "./funciones.js";
 
