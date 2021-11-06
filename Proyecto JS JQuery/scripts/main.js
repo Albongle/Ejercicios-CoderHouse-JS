@@ -14,14 +14,13 @@ $("document").ready( ()=> {
     .catch((error) => {
       console.error(error);
     });
-    $("#txt-buscar").change(handlerBuscar);
-    $("#txt-buscar").keyup(handlerBuscar);
+    $("#txt-buscar").on("change keyup paste",handlerBuscar);
 });
 
 
 function handlerBuscar(event) {
     let expresion = `${this.value}`;
     let filtro = productos.filter(element=>element.marca.toLowerCase().includes(expresion.toLowerCase()));
-    addAnuncio($("#anuncios"),filtro);    
+    addAnuncio($("#anuncios"),filtro);   
 }
 
