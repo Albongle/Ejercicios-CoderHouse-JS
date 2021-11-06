@@ -1,10 +1,11 @@
 import { productos, carrito } from "./globales.js";
 
 export const addAnuncio = (contenedor, elementos) => {
+  contenedor.empty();
   elementos.forEach((element) => {
     $(contenedor).append(`
-        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-3 m-2">
-            <div class="card shadow p-3 mb-5 bg-body rounded">
+        <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 col-xxl-3 m-2">
+            <div class="card shadow anuncio p-3 mb-5 bg-body rounded">
                 <img src="${element.urlImg}" class="card-img-top" alt="telefono"></img>
                 <div class="card-body">
                     <p class="card-title fs-5">${element.marca} - ${element.nombre}</p>
@@ -37,7 +38,7 @@ const addCarrito = (contenedor, producto) => {
 
 
 
-const showCarrito = (contenedor,productos)=>{
+export const showCarrito = (contenedor,productos)=>{
   contenedor.empty();
   productos.forEach(producto=>{
     $(contenedor).append(`<div class="col mt-1">

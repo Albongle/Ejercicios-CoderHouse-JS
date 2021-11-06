@@ -1,0 +1,12 @@
+.anuncio:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.01, 1.01);
+          transform: scale(1.01, 1.01);
+  -webkit-box-shadow: whitesmoke .2rem .2rem 1rem;
+          box-shadow: whitesmoke .2rem .2rem 1rem;
+  -webkit-transition-delay: 0.1ms;
+          transition-delay: 0.1ms;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+/*# sourceMappingURL=styles.css.map */

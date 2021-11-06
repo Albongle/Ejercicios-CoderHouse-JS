@@ -1,6 +1,6 @@
-import {productos,carrito} from "./globales.js";
+import {productos} from "./globales.js";
 import { getDatosAjax } from "./ajax.js";
-import { addAnuncio } from "./funciones.js";
+import { addAnuncio} from "./funciones.js";
 
 
 
@@ -14,5 +14,14 @@ $("document").ready( ()=> {
     .catch((error) => {
       console.error(error);
     });
+    $("#txt-buscar").change(handlerBuscar);
+    $("#txt-buscar").keyup(handlerBuscar);
 });
+
+
+function handlerBuscar(event) {
+    let expresion = `${this.value}`;
+    let filtro = productos.filter(element=>element.marca.toLowerCase().includes(expresion.toLowerCase()));
+    addAnuncio($("#anuncios"),filtro);    
+}
 

@@ -14,10 +14,14 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="./scripts/main.js" defer type="module"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="./styles/styles.css">    <!-- Estilo propio -->
     <title>Tienda Movil</title>
 </head>
 
-<body>
+
+<body">
+    <!-- BARRA DE NAVEGACION -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="./img/iconCel.ico" alt="Logo" style="height: 32px;"></a>
@@ -50,15 +54,47 @@
                     </li>
                 </ul>
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                    <button id="btn-buscar" class="btn btn-outline-light" type="button">Buscar</button>
+                    <input id="txt-buscar" class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
                 </form>
             </div>
         </div>
     </nav>
-    <section id="spinner" class="container-fluid">
+    <!-- CARRUSEL -->
+    <section class="m-5">
+        <div id="carouselExampleIndicators" class="col-12 carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./img/portada1.png" class="d-block w-100" alt="portada1">
+              </div>
+              <div class="carousel-item">
+                <img src="./img/portada2.png"" class="d-block w-100" alt="portada2">
+              </div>
+              <div class="carousel-item">
+                <img src="./img/portada3.png"" class="d-block w-100" alt="portada3">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
 
     </section>
+    <!-- SPINNER -->
+    <section id="spinner" class="container-fluid">
+
+    </section> 
+
+    <!-- ANUNCIOS -->
     <main class="container">
 
 
@@ -68,8 +104,23 @@
 
     </main>
 
-
-
+    
+    <div class="container-fluid">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                <img src="./img/iconCel.ico" width="30" height="24" alt="icono">
+            </a>
+            <span class="text-muted">&copy; 2021 Tienda Movil, Inc</span>
+          </div>
+          
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><i class="fab fa-instagram"></i></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><i class="fab fa-youtube"></i></a></li>
+          </ul>
+        </footer>
+      </div>
 
 
 

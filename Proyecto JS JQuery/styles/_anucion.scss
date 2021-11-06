@@ -1,0 +1,8 @@
+.anuncio{
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.01,1.01 );
+        transition-delay: 0.1ms;
+        transition-duration: 0.5s;
+    }
+}
