@@ -13,7 +13,7 @@ export const addAnuncio = (contenedor, elementos) => {
                     <p class="card-text"><span class="badge rounded-pill bg-info text-dark">Hasta ${element.cuotas} sin interés</span></p>
                     <p class="card-text">${element.desc}</p>                    
                 </div>
-                <button id="btn-compra-${element.id}" value="${element.id}" type="button" class="btn btn-outline-success btn-comprar">Comprar</button>
+                <button id="btn-compra-${element.id}" value="${element.id}" type="button" class="btn btn-outline-primary btn-comprar">Comprar</button>
             </div>
         </div>
     `);
@@ -29,7 +29,7 @@ function comprarProducto() {
 
 const addCarrito = (contenedor, producto) => {
   if (!carrito.find((element) => element.id === producto.id)) {
-    alert(`Comprado`);
+    alert(`Usted agrego al carrito ${producto.marca}-${producto.nombre}`);
     carrito.push(producto);
   }
   $("#carrito-cantidad").html(carrito.length);
@@ -41,18 +41,16 @@ const addCarrito = (contenedor, producto) => {
 export const showCarrito = (contenedor,productos)=>{
   contenedor.empty();
   productos.forEach(producto=>{
-    $(contenedor).append(`<div class="col mt-1">
-    <div class="card">
-
-    <button id="btn-compra-${producto.id}" value="${producto.id}" type="button"  class="col-3 btn btn-close btn-outline-danger btn-quitar align-self-center"></button>
-      <img src="${producto.urlImg}" class="card-img-top" alt="telefono-carrito">
-      <p class="card-text text-primary text-center">${producto.marca}</p>
-      <div class="card-footer">
-        <p class="card-text text-success fs-6 text-center">$${parseInt(producto.precio).toLocaleString()}</p>
-        <p class="card-text"><span class="badge rounded-pill bg-info text-dark">Hasta ${producto.cuotas} sin interés</span></p>
-      </div>
-    </div>
-  </div>`);
+    $(contenedor).append(`<div class="col-12 mt-1">
+                            <div class="card p-1">
+                              <button id="btn-quitar-${producto.id}" value="${producto.id}" type="button"  class="col-3 btn btn-close btn-outline-danger btn-quitar align-self-center"></button>
+                              <img src="${producto.urlImg}" class="card-img-top" alt="telefono-carrito">
+                              <p class="card-text text-primary text-center">${producto.marca}</p>
+                              <div class="card-footer">
+                                <p class="card-text text-success fs-6 text-center">$${parseInt(producto.precio).toLocaleString()}</p>
+                              </div>
+                            </div>
+                          </div>`);
   });
   $(".btn-quitar").on("click",removeCarrito);
 };
@@ -62,4 +60,20 @@ function removeCarrito(){
   carrito.splice(carrito.findIndex(element=>element.id===parseInt(this.value)),1);
   $("#carrito-cantidad").html(carrito.length);
   showCarrito($("#carrito-productos"),carrito);
+};
+
+
+export const createRangoDePrecios = (elementos,filtro)=>{
+  let saltos = 1000;
+  let max = Math.max(...(elementos.map(element => element[filtro])));
+  let min = Math.min(...(elementos.map(element => element[filtro])));
+
+  $("#controles").append(`<div class="shadow p-3 mb-5 bg-body rounded col-4 justify-content-center">
+                          <h2 class="text-center"><span class="badge bg-primary">Precio</span></h2>
+                          <div class="row">
+                            <label class="col-4 text-end" for="rango-precio">${min}</label>
+                            <input class="col-4" id="rango-precio" type="range" min="${min}" max="${max}" step="${saltos}" value="${min}">
+                            <label class="col-4 text-start" for="rango-precio">${max}</label>
+                          </div>
+                        </div>`);
 };
