@@ -1,6 +1,7 @@
-import { productos } from "./globales.js";
+import { carrito, productos } from "./globales.js";
 import { getDatosAjax } from "./ajax.js";
-import { addAnuncio, createRangoDePrecios} from "./funciones.js";
+import { addAnuncio, createRangoDePrecios, addCarrito} from "./funciones.js";
+import { leeDelStorage } from "./storage.js";
 
 
 
@@ -12,6 +13,14 @@ $("document").ready( ()=> {
       addAnuncio($("#anuncios"), productos);
       createRangoDePrecios(datos,"precio");
       $("#rango-precio").on("change click",handlerFiltrarPrecio);
+      let storage = leeDelStorage("productos");
+      if(storage){
+        storage.forEach(element => {
+          addCarrito($("#carrito-productos"),element);
+        });
+      }
+      $("#btn-cierra-carrito").on("click",handlerCierraCarrito);
+      $("#btn-abre-carrito").on("click",handlerAbreCarrito);
     })
     .catch((error) => {
       console.error(error);
@@ -29,5 +38,13 @@ function handlerBuscar(event) {
 function handlerFiltrarPrecio(event) {
   let filtro = productos.filter(element=>element.precio >= parseInt(this.value));
   addAnuncio($("#anuncios"),filtro);   
+}
+
+function handlerCierraCarrito(event) {
+  event.target.parentNode.parentNode.setAttribute("hidden","true");
+}
+function handlerAbreCarrito(event) {
+
+  $("#container-carrito").removeAttr("hidden");
 }
 

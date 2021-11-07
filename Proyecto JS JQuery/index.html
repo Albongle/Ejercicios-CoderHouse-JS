@@ -38,21 +38,12 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Equipos</a>
           </li>
-          <li class="nav-item dropdown container">
-            <img src="./img/carrito_vacio.ico" class="m-1 dropdown-toggle position-relative" alt="carrito"
-              style="height:32px;" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          <li class="nav-item container">
+            <img  src="./img/carrito_vacio.ico" class="m-1 dropdown-toggle position-relative" alt="carrito"
+              style="height:32px;" id="btn-abre-carrito" aria-expanded="false">
             <span class="position-absolute top-50 start-1 translate-middle badge rounded-pill bg-success"
               id="carrito-cantidad">0</span>
             </img>
-            <ul class="position-absolute dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
-              <li class="nav-item">
-                <div class="container-fluid">
-                  <div id="carrito-productos" class="row card-group justify-content-center">
-
-                  </div>
-                </div>
-              </li>
-            </ul>
           </li>
         </ul>
         <form class="d-flex">
@@ -62,6 +53,15 @@
     </div>
   </nav>
 
+
+
+  <div hidden class="container position-fixed fixed-top m-5 translate-middle-x start-50 top-0  w-25 shadow p-3  bg-body rounded" id="container-carrito">
+    <div class="row justify-content-around"><button id="btn-cierra-carrito" class="col-xxl-3 col-xl-4 col-md-8 btn btn-outline-danger">Cerrar</button></div>
+    
+    <div id="carrito-productos" class="row card-group justify-content-around">
+      
+    </div>
+  </div>
 
 
 
@@ -113,10 +113,10 @@
   <!-- ANUNCIOS -->
   <main class="container">
     <section id="controles" class="row justify-content-center">
-      
-      
- 
-  
+
+
+
+
     </section>
 
     <section id="anuncios" class="row card-group justify-content-md-around justify-content-center">

@@ -1,4 +1,5 @@
 import { productos, carrito } from "./globales.js";
+import { guardarEnStorage } from "./storage.js";
 
 export const addAnuncio = (contenedor, elementos) => {
   contenedor.empty();
@@ -27,10 +28,11 @@ function comprarProducto() {
   addCarrito($("#carrito-productos"), comprado);
 }
 
-const addCarrito = (contenedor, producto) => {
+export const addCarrito = (contenedor, producto) => {
   if (!carrito.find((element) => element.id === producto.id)) {
-    alert(`Usted agrego al carrito ${producto.marca}-${producto.nombre}`);
+    // alert(`Usted agrego al carrito ${producto.marca}-${producto.nombre}`);
     carrito.push(producto);
+    guardarEnStorage("productos",carrito);
   }
   $("#carrito-cantidad").html(carrito.length);
   showCarrito(contenedor,carrito);
@@ -41,9 +43,9 @@ const addCarrito = (contenedor, producto) => {
 export const showCarrito = (contenedor,productos)=>{
   contenedor.empty();
   productos.forEach(producto=>{
-    $(contenedor).append(`<div class="col-12 mt-1">
+    $(contenedor).append(`<div class="col-xxl-4 col-xl-6 col-md-12 mt-2">
                             <div class="card p-1">
-                              <button id="btn-quitar-${producto.id}" value="${producto.id}" type="button"  class="col-3 btn btn-close btn-outline-danger btn-quitar align-self-center"></button>
+                              <button id="btn-quitar-${producto.id}" value="${producto.id}" type="button"  class="col-4 btn btn-close btn-outline-danger btn-quitar align-self-center"></button>
                               <img src="${producto.urlImg}" class="card-img-top" alt="telefono-carrito">
                               <p class="card-text text-primary text-center">${producto.marca}</p>
                               <div class="card-footer">
@@ -58,6 +60,7 @@ export const showCarrito = (contenedor,productos)=>{
 
 function removeCarrito(){
   carrito.splice(carrito.findIndex(element=>element.id===parseInt(this.value)),1);
+  guardarEnStorage("productos",carrito);
   $("#carrito-cantidad").html(carrito.length);
   showCarrito($("#carrito-productos"),carrito);
 };
