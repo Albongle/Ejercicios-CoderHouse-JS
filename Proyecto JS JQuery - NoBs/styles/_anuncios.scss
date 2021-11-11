@@ -1,0 +1,98 @@
+.anuncios{
+    width: 100%;
+    font-size: 1.4rem;
+    margin: 1rem;
+    margin-bottom: 10rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    .anuncios__anuncio{
+        margin: 1rem;
+        background-color: whitesmoke;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border: .16rem solid white;
+        border-radius: .5rem;
+        width: 25rem;
+        &:hover{
+            transform: scale(1.01,1.01 );
+            box-shadow: steelblue .2rem .2rem 1rem;
+            transition-delay: 0.1ms;
+            transition-duration: 0.5s;
+        }
+
+        .anuncio__img{
+            width: 100%;
+        }
+        .anuncio__detalle{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:flex-start;
+            p{
+                padding: 1rem;
+            }
+            .detalle__descripcion{
+                text-align:justify;
+            }
+            .detalle__precio{
+                font-size: 2rem;
+                font-weight: 300;
+                color:olive;
+            }
+            .detalle__cuotas{
+                color:rebeccapurple;
+                font-weight: 500;
+                font-size: 1.5rem;
+            }
+        }
+        .anuncio__btn{
+            margin: 1rem;
+            border:0;
+            color: whitesmoke;
+            border-radius: .5rem;
+            cursor: pointer;
+            padding: 1rem 2rem;
+            background-color: steelblue;
+            &:hover{
+                transform: scale(1.01,1.01 );
+                box-shadow: whitesmoke .2rem .2rem 1rem;
+                transition-delay: 0.1ms;
+                transition-duration: 0.5s;
+            }
+        }
+    }
+
+    .anuncios__anuncio-not{
+        margin: 1rem;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: .5rem;
+        width: 25rem;
+        .anuncio__img{
+            width: 100%;
+        }
+        .anuncio__detalle{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:flex-start;
+            p{
+                padding: 1rem;
+            }
+            .detalle__descripcion{
+                text-align:center;
+                color: steelblue;
+                font-size: 2rem;
+            }
+        }
+    }
+}

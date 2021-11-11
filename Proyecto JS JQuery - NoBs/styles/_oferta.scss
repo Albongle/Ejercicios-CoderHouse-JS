@@ -1,0 +1,13 @@
+.anuncios-ofertas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .ofertas{
+        display: none;
+        padding: 1rem;
+        margin-top: 3rem;
+        .ofertas__img{
+            width: 100%;  
+        }
+    }
+}

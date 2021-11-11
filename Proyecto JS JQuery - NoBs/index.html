@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./img/iconCel.ico" type="image/x-icon">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script><!-- JQuery -->
+  <script src="./scripts/main.js" defer type="module"></script><!-- logica propia -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./styles/style.css"> <!-- Estilo propio -->
+  <title>Tienda Movil</title>
+</head>
+
+
+<body">
+  <!-- BARRA DE NAVEGACION -->
+  <header class="header">
+    <img class="header__logo" src="./img/iconCel.ico" alt="logo">
+    <nav class="header__nav">
+
+
+      <ul class="nav__listas">
+        <li class="listas__link"><a href="#">Inicio</a></li>
+        <li class="listas__link"><a href="#">Nosotros</a></li>
+        <li class="listas__link"><a href="#">Contacto</a></li>
+        <li class="listas__link"><a href="#">Econtranos</a>
+          <ul class="listas__sublistas">
+            <li class="sublistas__sublink"><a href="#">Donde</a></li>
+            <li class="sublistas__sublink"><a href="#">Cuando</a></li>
+            <li class="sublistas__sublink"><a href="#">Como</a></li>
+          </ul>
+
+        </li>
+      </ul>
+
+      <img id="btn-abre-carrito" class="nav__shop" src="./img/carrito_vacio.ico" alt="shop">
+      <p id="carrito-cantidad" class="nav__cantidad">0</p>
+    </nav>
+  </header>
+
+
+  <!-- CARRITO -->
+  <section style="display: none;" id="container-carrito" class="section__carrito animate__animated animate__backInDown">
+    <div class="container-carrito">
+      <i id="btn-cierra-carrito" class="fa fa-2x fa-times-circle carrito__btn" aria-hidden="true"></i>
+
+
+      <div id="carrito-productos" class="carrito__productos">
+        <div class="productos__producto">
+          <div class="producto__detalle">
+            <p class="detalle__marca">El Carrito esta vacio</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+
+
+
+
+
+
+
+
+
+  <!--MAIN -->
+  <main class="main">
+
+    <!--CONTROLES -->
+    <section class="controles">
+      <div id="controles" class="section__controles">
+        <input id="txt-buscar" class="controles__txt" type="search" placeholder="Buscar" aria-label="Search">
+
+      </div>
+    </section>
+
+    <!-- SPINNER -->
+    <section id="spinner" class="spinner">
+
+    </section>
+
+    <section class="anuncios-ofertas">
+      <article id="oferta" class="ofertas">
+        <img class="ofertas__img" src="./img/portada1.png" alt="oferta" id="oferta-img">
+        
+
+      </article>
+
+
+      <!--ANUNCIOS -->
+      <section id="anuncios" class="anuncios">
+
+      </section>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Todos los derechos reservados &copy; 2021</p>
+    <nav class="footer__nav">
+      <ul class="nav__listas">
+        <li class="listas__link"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+        <li class="listas__link"><a href="#"><i class="fab fa-instagram"></i></a></li>
+        <li class="listas__link"><a href="#"><i class="fab fa-youtube"></i></a></li>
+        <li class="listas__link"><a href="#"><i class="fab fa-github"></i></a>
+      </ul>
+    </nav>
+
+
+  </footer>
+
+
+  </body>
+
+</html>

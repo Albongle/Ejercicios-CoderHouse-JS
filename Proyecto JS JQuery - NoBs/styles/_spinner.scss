@@ -1,0 +1,13 @@
+.spinner{
+    width: 5vw;
+    position: absolute;
+    right: 50vw;
+    top: 25vh;
+    margin-top: 5rem;
+    .btn__spinner{
+        background-color:steelblue;
+        color: whitesmoke;
+        padding: 1rem 5rem;
+        border: 0;
+    }
+}

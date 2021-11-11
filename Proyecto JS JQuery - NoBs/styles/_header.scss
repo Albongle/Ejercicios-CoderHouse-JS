@@ -1,0 +1,102 @@
+.header {
+  background-color:steelblue;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.6rem;
+  .header__logo{
+    width: 5rem;
+  }
+  @media (max-width:768px) {
+    justify-content: center;
+  }
+  .header__nav {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;    
+    .nav__shop{
+      margin-right: 1rem;
+      border-radius: 5rem;
+      position: relative;
+      width: 3.2rem;
+      &:hover{
+        cursor: pointer;
+        transform: scale(1.1,1.1 );
+        box-shadow: whitesmoke .2rem .2rem 1rem;
+        transition-delay: 0.1ms;
+        transition-duration: 0.5s;
+      }
+    }
+    .nav__cantidad{
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      top: 2.5rem;
+      left: 10%;
+      width: 3rem;
+      text-align: center;
+      padding: .6rem;
+      border-radius:50rem;
+      background-color: whitesmoke;
+      color:tomato;
+      font-weight: bold;
+    }
+    .nav__listas {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      .listas__link {
+        padding: 1rem;
+        border-radius: 1rem;
+        position: relative;
+        list-style: none;
+        margin: 1rem;
+        a {
+          color: white;
+          text-decoration: none;
+        }
+        &:hover {
+          background-color: white;
+          a {
+            color: steelblue;
+          }
+        }
+        .listas__sublistas {
+          display: none;
+          background-color: white;
+          padding-top: 1rem;
+          position: absolute;
+          left: 0%;
+          width: 100%;
+          .sublistas__sublink {
+            list-style: none;
+
+            padding: 1rem;
+            a {
+              color: steelblue;
+              text-decoration: none;
+            }
+            &:hover {
+              background-color: steelblue;
+              a {
+                color: white;
+              }
+            }
+          }
+        }
+        &:hover {
+          .listas__sublistas {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
