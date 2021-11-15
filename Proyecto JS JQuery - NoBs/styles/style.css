@@ -376,9 +376,14 @@ html {
 }
 
 .anuncios .anuncios__anuncio .anuncio__detalle .detalle__cuotas {
-  color: rebeccapurple;
+  padding: 0 1rem;
+  border-radius: 1rem;
+  background-color: rebeccapurple;
+  color: white;
   font-weight: 500;
   font-size: 1.5rem;
+  -webkit-box-shadow: white .1rem .1rem 2rem;
+          box-shadow: white .1rem .1rem 2rem;
 }
 
 .anuncios .anuncios__anuncio .anuncio__btn {
@@ -651,6 +656,13 @@ html {
   color: red;
 }
 
+.section__carrito .container-carrito .carrito__btn-envio:hover {
+  -webkit-transform: rotate(1turn);
+          transform: rotate(1turn);
+  cursor: pointer;
+  color: olivedrab;
+}
+
 .section__carrito .container-carrito .btn-quitar {
   border: 0;
   margin: 1rem;
@@ -696,5 +708,81 @@ html {
 
 .section__carrito .container-carrito .productos__producto .producto__detalle .detalle__precio {
   color: olive;
+}
+
+.dialogo {
+  border-radius: 1rem;
+  position: absolute;
+  width: 40rem;
+  top: 50vh;
+  left: 40vw;
+  background-color: white;
+  border: 0;
+}
+
+.dialogo .dialogo__btn-cierra {
+  position: relative;
+  top: 10%;
+  left: 90%;
+  border: 0;
+  border-radius: 5rem;
+  padding: 1rem 1.5rem;
+  background-color: steelblue;
+  color: white;
+}
+
+.dialogo .dialogo__btn-cierra:hover {
+  cursor: pointer;
+}
+
+.dialogo .dialogo__btn-cierra:active {
+  -webkit-transform: scale(0.9, 0.9);
+          transform: scale(0.9, 0.9);
+}
+
+.dialogo .dialogo__resultado {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  text-align: center;
+  text-shadow: 0 0 10px steelblue;
+  -webkit-animation: neon 2s ease-in-out infinite forwards;
+          animation: neon 2s ease-in-out infinite forwards;
+}
+
+@-webkit-keyframes neon {
+  0% {
+    color: #1a1a1a;
+    text-shadow: #ffc2fa;
+  }
+  20% {
+    color: #1a1a1a;
+    text-shadow: 0 0 10px steelblue;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    color: #1a1a1a;
+    text-shadow: 0 0 10px steelblue;
+  }
+}
+
+@keyframes neon {
+  0% {
+    color: #1a1a1a;
+    text-shadow: #ffc2fa;
+  }
+  20% {
+    color: #1a1a1a;
+    text-shadow: 0 0 10px steelblue;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    color: #1a1a1a;
+    text-shadow: 0 0 10px steelblue;
+  }
 }
 /*# sourceMappingURL=style.css.map */

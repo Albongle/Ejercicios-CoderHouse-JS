@@ -27,6 +27,14 @@
                 color: red;
             }
         }
+        .carrito__btn-envio{
+         
+            &:hover{
+                transform: rotate(1turn);
+                cursor: pointer;
+                color:olivedrab;
+            }
+        }
         .btn-quitar{
             border:0;
             margin: 1rem;

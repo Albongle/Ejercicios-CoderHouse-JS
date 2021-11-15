@@ -4,6 +4,8 @@ const cors = require("cors");
 const corsOptions = { origin: "*", optionSucessStatus: 200 };
 const app = express();
 const bodyParser = require("body-parser");
+
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -19,9 +21,29 @@ app.get("/anuncios", function (req, res) {
 });
 
 app.get("[/]", (req, res)=> {
+  
   res.send("Api Alejandro Bongioanni");
 
   return;
+});
+app.post("/enviarCarrito", (req, res)=> {
+
+  setTimeout(() => {
+
+    let datos = JSON.parse(req.body.carrito);
+    datos.forEach(element => {
+      if(element.id == undefined || element.id == ""){
+        res.send({type:"error"});
+        return;
+      }
+
+    });
+    res.send({type:"ok",datos:datos});
+    return;
+  }, 2000);
+  
+  
+  
 });
 
 app.listen(3000, () => {

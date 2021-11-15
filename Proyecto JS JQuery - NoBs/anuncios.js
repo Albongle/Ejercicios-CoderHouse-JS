@@ -6,8 +6,8 @@ const anuncios = [{
     "marca":"Motorola",
     "gama":"Media",
     "tipo": "Telefono",
-    "precio":"47999",
-    "cuotas":"6"
+    "precio":47999,
+    "cuotas":6
   },
   {
     "id": 2,
@@ -17,8 +17,8 @@ const anuncios = [{
     "marca":"Apple",
     "gama":"Alta",
     "tipo": "Telefono",
-    "precio":"215999",
-    "cuotas":"12"
+    "precio":215999,
+    "cuotas":12
   },
   {
     "id": 3,
@@ -28,8 +28,8 @@ const anuncios = [{
     "marca":"Apple",
     "gama":"Alta",
     "tipo": "Telefono",
-    "precio":"305999",
-    "cuotas":"12"
+    "precio":305999,
+    "cuotas":12
   
   },
   {
@@ -40,8 +40,8 @@ const anuncios = [{
     "marca":"Samsung",
     "gama":"Baja",
     "tipo": "Telefono",
-    "precio":"19000",
-    "cuotas":"3"
+    "precio":19000,
+    "cuotas":3
   
   },
   {
@@ -52,8 +52,8 @@ const anuncios = [{
     "marca":"Samsung",
     "gama":"Baja",
     "tipo": "Telefono",
-    "precio":"39669",
-    "cuotas":"3"
+    "precio":39669,
+    "cuotas":3
   
   },
   {
@@ -63,9 +63,9 @@ const anuncios = [{
     "nombre": "Buds+",
     "marca":"Samsung",
     "gama":"Alta",
-    "tipo": "Auriculares",
-    "precio":"15999",
-    "cuotas":"12"
+    "tipo": "Auricular",
+    "precio":15999,
+    "cuotas":12
   
   },
   {
@@ -76,7 +76,7 @@ const anuncios = [{
     "marca":"Motorola",
     "gama":"Baja",
     "tipo": "Telefono",
-    "precio":"39999",
+    "precio":39999,
     "cuotas":"3"
   
   },
@@ -88,8 +88,8 @@ const anuncios = [{
     "marca":"Motorola",
     "gama":"Media",
     "tipo": "Telefono",
-    "precio":"139000",
-    "cuotas":"6"
+    "precio":139000,
+    "cuotas":6
   
   },
   {
@@ -100,8 +100,8 @@ const anuncios = [{
     "marca":"Samsung",
     "gama":"Media",
     "tipo": "SmartWatch",
-    "precio":"5999",
-    "cuotas":"6"
+    "precio":5999,
+    "cuotas":6
   
   },
   {
@@ -112,8 +112,8 @@ const anuncios = [{
     "marca":"LG",
     "gama":"Media",
     "tipo": "Telefono",
-    "precio":"284999",
-    "cuotas":"6"
+    "precio":284999,
+    "cuotas":6
   
   },
   {
@@ -124,8 +124,8 @@ const anuncios = [{
     "marca":"LG",
     "gama":"Media",
     "tipo": "Telefono",
-    "precio":"30999",
-    "cuotas":"6"
+    "precio":30999,
+    "cuotas":6
   
   },
   {
@@ -136,8 +136,8 @@ const anuncios = [{
     "marca":"LG",
     "gama":"Alta",
     "tipo": "Telefono",
-    "precio":"31999",
-    "cuotas":"12"
+    "precio":31999,
+    "cuotas":12
   
   },
   {
@@ -148,8 +148,8 @@ const anuncios = [{
     "marca":"Motorola",
     "gama":"Media",
     "tipo": "Telefono",
-    "precio":"45999",
-    "cuotas":"6"
+    "precio":45999,
+    "cuotas":6
   
   },
   {
@@ -160,8 +160,8 @@ const anuncios = [{
     "marca":"Samsung",
     "gama":"Alta",
     "tipo": "Telefono",
-    "precio":"159000",
-    "cuotas":"12"
+    "precio":159000,
+    "cuotas":12
   
   },
   {
@@ -172,8 +172,8 @@ const anuncios = [{
     "marca":"Samsung",
     "gama":"Alta",
     "tipo": "Telefono",
-    "precio":"205000",
-    "cuotas":"12"
+    "precio":205000,
+    "cuotas":12
   
   },
   {
@@ -183,9 +183,9 @@ const anuncios = [{
     "nombre": "SonyBTH",
     "marca":"Sony",
     "gama":"Baja",
-    "tipo": "Auriculares",
-    "precio":"7299",
-    "cuotas":"3"
+    "tipo": "Auricular",
+    "precio":7299,
+    "cuotas":3
   
   },
   {
@@ -196,8 +196,8 @@ const anuncios = [{
     "marca":"Samsung",
     "gama":"Media",
     "tipo": "Tablet",
-    "precio":"37999",
-    "cuotas":"6"
+    "precio":37999,
+    "cuotas":6
   
   },
   {
@@ -208,8 +208,8 @@ const anuncios = [{
     "marca":"LG",
     "gama":"Alta",
     "tipo": "Telefono",
-    "precio":"69999",
-    "cuotas":"12"
+    "precio":69999,
+    "cuotas":12
   
   },
   {
@@ -220,8 +220,8 @@ const anuncios = [{
     "marca":"Samsung",
     "gama":"Alta",
     "tipo": "SmartWatch",
-    "precio":"34999",
-    "cuotas":"12"
+    "precio":34999,
+    "cuotas":12
   
   },
   {
@@ -232,8 +232,8 @@ const anuncios = [{
     "marca":"Samsung",
     "gama":"Alta",
     "tipo": "Telefono",
-    "precio":"239999",
-    "cuotas":"12"
+    "precio":239999,
+    "cuotas":12
   
   },
   {
@@ -244,8 +244,8 @@ const anuncios = [{
     "marca":"Samsung",
     "gama":"Alta",
     "tipo": "Telefono",
-    "precio":"259999",
-    "cuotas":"12"
+    "precio":259999,
+    "cuotas":12
   
   }];
 
