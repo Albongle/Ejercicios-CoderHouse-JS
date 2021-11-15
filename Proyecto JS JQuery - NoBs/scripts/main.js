@@ -52,7 +52,10 @@ if(carrito.length>0){
     $.post("http://localhost:3000/enviarCarrito", {carrito:JSON.stringify(carrito)})
     .done((datos)=>{
       if(datos.type == "ok"){
-        $("#dialogo").attr("open","true");
+        $("#dialogo").show(TIEMPO_RESPUESTA,()=>{
+          $("#dialogo").attr("open","true");
+        })
+        
         deleteCarrito();
       }
       else{
@@ -134,6 +137,8 @@ function handlerFiltrarTipo(event) {
 }
 
 function handlerCerrarDialogo(){
-  $("#dialogo").removeAttr("open");
+  $("#dialogo").fadeOut(TIEMPO_RESPUESTA,()=>{
+    $("#dialogo").removeAttr("open");
+  })
 }
 
