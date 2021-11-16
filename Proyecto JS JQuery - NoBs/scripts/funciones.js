@@ -1,4 +1,4 @@
-import { productos, carrito } from "./globales.js";
+import { productos, carrito, CONTAINER_CARRITO, TIEMPO_RESPUESTA } from "./globales.js";
 import { guardarEnStorage, limpiarStorage } from "./storage.js";
 
 export const addAnuncio = (contenedor, elementos) => {
@@ -6,14 +6,14 @@ export const addAnuncio = (contenedor, elementos) => {
   elementos.forEach((element) => {
     $(contenedor).append(`
             <article class="anuncios__anuncio">
-                <img src="${element.Imagen}" class="anuncio__img" alt="telefono"></img>
+                <img src="${element.urlImg}" class="anuncio__img" alt="telefono"></img>
                 <div class="anuncio__detalle">
-                    <p>${element.Marca} - ${element.Nombre}</p>
-                    <p class="detalle__precio">$${element.Precio.toLocaleString()}</p>
-                    <p class="detalle__cuotas">Hasta ${element.Cuotas} sin interés</p>
-                    <p class="detalle__descripcion">${element.Descripcion}</p>                    
+                    <p>${element.marca} - ${element.nombre}</p>
+                    <p class="detalle__precio">$${element.precio.toLocaleString()}</p>
+                    <p class="detalle__cuotas">Hasta ${element.cuotas} sin interés</p>
+                    <p class="detalle__descripcion">${element.desc}</p>                    
                 </div>
-                <button id="btn-compra-${element.Id}" value="${element.Id}" type="button" class="anuncio__btn btn-comprar">Comprar</button>
+                <button id="btn-compra-${element.id}" value="${element.id}" type="button" class="anuncio__btn btn-comprar">Comprar</button>
             </article>
     `);
   });
@@ -34,13 +34,13 @@ export const notAnuncio = (contenedor) => {
 };
 
 function handlerComprarProducto() {
-  let comprado = productos.find((element) => element.Id === parseInt(this.value));
+  let comprado = productos.find((element) => element.id === parseInt(this.value));
   addElementCarrito($("#carrito-productos"),comprado);
 }
 
 export const addElementCarrito = (contenedor, producto) => {
 
-  if (!carrito.find((element) => element.Id === producto.Id)) {
+  if (!carrito.find((element) => element.id === producto.id)) {
     carrito.push(producto);
 
     guardarEnStorage("productos",carrito);
@@ -53,6 +53,7 @@ export const deleteCarrito=()=>{
   carrito.splice(0,carrito.length);
   renderizarCarrito();
   limpiarStorage("productos");
+  
 }
 
 
@@ -68,11 +69,11 @@ export const showCarrito = (contenedor,productos)=>{
   else{
     productos.forEach(producto=>{
       $(contenedor).append(`<article class="productos__producto">
-                                <button class="btn-quitar" id="btn-quitar-${producto.Id}" value="${producto.Id}"><i class="fa fa-trash" aria-hidden="true" class"btn-quitar"></i></button>
-                                <img src="${producto.Imagen}" class="producto__img" alt="telefono-carrito">
+                                <button class="btn-quitar" id="btn-quitar-${producto.id}" value="${producto.id}"><i class="fa fa-trash" aria-hidden="true" class"btn-quitar"></i></button>
+                                <img src="${producto.urlImg}" class="producto__img" alt="telefono-carrito">
                                 <div class="producto__detalle">
-                                  <p class="detalle__marca">${producto.Marca}</p>
-                                  <p class="detalle__precio">$${parseInt(producto.Precio).toLocaleString()}</p>
+                                  <p class="detalle__marca">${producto.marca}</p>
+                                  <p class="detalle__precio">$${parseInt(producto.precio).toLocaleString()}</p>
                                 </div>
                             </article>`);
     });
@@ -82,7 +83,7 @@ export const showCarrito = (contenedor,productos)=>{
 
 
 function handlerRemoveElementCarrito(){
-  carrito.splice(carrito.findIndex(element=>element.Id===parseInt(this.value)),1);
+  carrito.splice(carrito.findIndex(element=>element.id===parseInt(this.value)),1);
   guardarEnStorage("productos",carrito);
   renderizarCarrito();
 };
@@ -91,15 +92,15 @@ function renderizarCarrito(){
   $("#carrito-cantidad").html(carrito.length);
   showCarrito($("#carrito-productos"),carrito);
   if(carrito.length === 0){
-    $("#container-carrito").attr("hidden", "true");
+    $(CONTAINER_CARRITO).fadeOut(TIEMPO_RESPUESTA);
   }
 }
 
 
 export const createRangoDePrecios = (elementos)=>{
   let saltos = 1000;
-  let max = Math.max(...(elementos.map(element => element.Precio)));
-  let min = Math.min(...(elementos.map(element => element.Precio)));
+  let max = Math.max(...(elementos.map(element => element.precio)));
+  let min = Math.min(...(elementos.map(element => element.precio)));
 
   $("#controles").append(`<div class="controles__rango">
                           <h2 class="rango__titulo">Precio</h2>
@@ -114,8 +115,8 @@ export const createRangoDePrecios = (elementos)=>{
 export const createFiltroTipo = (elementos)=>{
 
   let tipos = elementos.reduce((acum,actual)=>{
-    if(!acum.some(element=> element === actual.Tipo)){
-      acum.push(actual.Tipo);
+    if(!acum.some(element=> element === actual.tipo)){
+      acum.push(actual.tipo);
     }
     return acum;
   },[]);

@@ -8,7 +8,6 @@ let imgPortada=1;
 
 
 $("document").ready(()=> {
-    
     //getDatosAjax("http://localhost:3000/Anuncios")
     $.get("http://localhost:3000/anuncios") // uso el metodo get de JQuery
     .done((datos) => {
@@ -47,23 +46,25 @@ $("document").ready(()=> {
 function handlerEnviarCarrito(){
 
 
+
 if(carrito.length>0){
   if(confirm("Desea procesar la compra?")){
-    $.post("http://localhost:3000/enviarCarrito", {carrito:JSON.stringify(carrito)})
-    .done((datos)=>{
-      if(datos.type == "ok"){
-        $("#dialogo").show(TIEMPO_RESPUESTA,()=>{
-          $("#dialogo").attr("open","true");
-        })
-        
-        deleteCarrito();
-      }
-      else{
-        throw Error ("No se pudo procesar la compra");
-      }
-    })
-    .fail((error)=>{
-      console.error(error);
+    $(CONTAINER_CARRITO).hide(TIEMPO_RESPUESTA,()=>{
+      $.post("http://localhost:3000/enviarCarrito", {carrito:JSON.stringify(carrito)})
+      .done((datos)=>{
+        if(datos.type == "ok"){
+          deleteCarrito();
+          $("#dialogo").show(TIEMPO_RESPUESTA,()=>{
+            $("#dialogo").attr("open","true");
+          })
+        }
+        else{
+          throw Error ("No se pudo procesar la compra");
+        }
+      })
+      .fail((error)=>{
+        console.error(error);
+      })
     })
   }
 }
@@ -85,7 +86,7 @@ function handlerOferta() {
 function handlerBuscar(event) {
     let expresion = `${this.value}`;
     CONTAINER_ANUNCIOS.fadeOut(TIEMPO_RESPUESTA,()=>{
-      let filtro = productos.filter(element=>element.Marca.toLowerCase().includes(expresion.toLowerCase()));
+      let filtro = productos.filter(element=>element.marca.toLowerCase().includes(expresion.toLowerCase()));
       if(filtro.length === 0){
         notAnuncio(CONTAINER_ANUNCIOS);
       }else{
@@ -100,7 +101,7 @@ function handlerBuscar(event) {
 function handlerFiltrarPrecio(event) {
 
   CONTAINER_ANUNCIOS.fadeOut(TIEMPO_RESPUESTA,()=>{
-    let filtro = productos.filter(element=>element.Precio >= parseInt(this.value));
+    let filtro = productos.filter(element=>element.precio >= parseInt(this.value));
     addAnuncio(CONTAINER_ANUNCIOS,filtro); 
     CONTAINER_ANUNCIOS.fadeIn(TIEMPO_RESPUESTA);
   })
@@ -122,7 +123,7 @@ function handlerFiltrarTipo(event) {
   CONTAINER_ANUNCIOS.fadeOut(TIEMPO_RESPUESTA,()=> {
     for (const item of $(".check-tipo")) {
       if(item.checked){
-        filtro.push(...productos.filter(element=> element.Tipo === item.value));
+        filtro.push(...productos.filter(element=> element.tipo === item.value));
       }
     }
     if(filtro.length === 0){

@@ -3,107 +3,88 @@ export class Producto{
     #tiposPosibles =["Telefono","Auricular","Tablet","SmartWatch"];
     constructor(id,urlImg,desc,nombre,marca,gama,tipo,precio,cuotas){
         this.id = id;
-        this.urlImg = urlImg || "./img/notfind.png";
-        this.desc= desc || "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, explicabo, facilis consequuntur doloremque, quae saepe voluptatem sapiente eius";
-        this.nombre=nombre || "Sin Nombre";
-        this.marca = marca || "Sin Marca";
-        this.tipo = tipo || "Sin Tipo";
-        this.gama=gama || "Media";
-        this.precio=precio||0;
-        this.cuotas=cuotas||0;
+        this.urlImg = this.#Imagen(urlImg) || "./img/notfind.png";
+        this.desc= this.#Descripcion(desc) || "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, explicabo, facilis consequuntur doloremque, quae saepe voluptatem sapiente eius";
+        this.nombre=this.#Nombre(nombre) || "Sin Nombre";
+        this.marca = this.#Marca(marca) || "Sin Marca";
+        this.tipo =this.#Tipo(tipo) || "Sin Tipo";
+        this.gama=this.#Gama(gama) || "Media";
+        this.precio=this.#Precio(precio)||0;
+        this.cuotas=this.#Cuotas(cuotas)||0;
     }
-    //#region  Propiedades
-    get Id(){
-        return this.id;
-    }
-    get Imagen(){
-        return this.urlImg;
-    }
-    set Imagen (value){
+    //#region  Metodos Privados
+
+    #Imagen (value){
         if(value!="" && value!= undefined){
-            this.urlImg == value
+            return value
         }
         else{
             throw Error("Imagen invalida");
         }
         
     }
-    get Descripcion(){
-        return this.desc;
-    }
-    set Descripcion (value){
+
+    #Descripcion (value){
         if(value!="" && value!= undefined){
-            this.desc == value
+            return value;
         }
         else{
             throw Error("Descripcion Invalida");
         }
         
     }
-    get Nombre(){
-        return this.nombre;
-    }
-    set Nombre (value){
+
+    #Nombre (value){
         if(value!="" && value!= undefined){
-            this.nombre == value
+            return value;
         }
         else{
             throw Error("Nombre Invalido");
         }
         
     }
-    get Cuotas(){
-        return this.cuotas;
-    }
-    set Cuotas(value){
+
+    #Cuotas(value){
 
         if(!isNaN(value) && value>-1 && value<13){
-            this.cuotas= value;
+            return value;
         }
         else{
             throw Error("Cantidad de cuotas invalidas, solo se puede establecer entre 0 y 12");
         }
     }
-    get Marca(){
-        return this.marca;
-    }
-    set Marca(value){
+
+    #Marca(value){
         if(value!="" && value!= undefined){
-            this.marca=value;
+            return value;
         }
         else{
             throw Error("Marca Invalida");
         }
     }
-    get Gama(){
-        return this.gama;
-    }
-    set Gama(value){
+
+    #Gama(value){
         if(value!="" && value!=undefined && this.#gamasPosibles.includes(value,0)){
-            this.gama = value;
+            return value;
         }
         else{
             throw Error(`"Gama Invalida, solo permitido ${this.#gamasPosibles.forEach(element=> element)}"`)
         }
     }
-    get Tipo(){
-        return this.tipo;
-    }
-    set Tipo (value){
+
+    #Tipo (value){
         if(value!="" && value!= undefined && this.#tiposPosibles.includes(value,0)){
-            this.tipo=value;
+            return value;
         }
         else{
             throw Error(`"Tipo Invalido, solo permitido ${this.#tiposPosibles.forEach(element=> element)}"`);
         }
     }
 
-    get Precio(){
-        return this.precio;
-    }
-    set Precio(value){
+
+    #Precio(value){
         if(!isNaN(value) && value >-1){
-            this.precio = value;
+            return value;
         }
         else{
             throw Error("Precio invalido");
