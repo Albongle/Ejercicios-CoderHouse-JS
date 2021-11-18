@@ -2,16 +2,20 @@ import { carrito, CARRITO_PRODUCTOS, CONTAINER_ANUNCIOS, CONTAINER_CARRITO, prod
 import { addAnuncio,notAnuncio, createRangoDePrecios, addElementCarrito, createFiltroTipo, deleteCarrito} from "./funciones.js";
 import { leeDelStorage } from "./storage.js";
 import { Producto } from "./modules/producto.js";
+import spinner from "./spinner.js";
 //import { getDatosAjax } from "./ajax.js";
 
 let imgPortada=1;
 
 
+window.addEventListener("l",()=>{
+  
+})
+
 $("document").ready(()=> {
-    //getDatosAjax("http://localhost:3000/Anuncios")
     $.get("http://localhost:3000/anuncios") // uso el metodo get de JQuery
     .done((datos) => {
-
+      spinner.removeSpinner(document.querySelector(".spinner"),document.querySelector(".img-spinner"));
       datos.forEach(p=>{
         productos.push(new Producto(p.id,p.urlImg,p.desc,p.nombre,p.marca,p.gama,p.tipo,p.precio,p.cuotas)); // pusheo los datos de la api al array
       });
